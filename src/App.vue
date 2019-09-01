@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app" :class="mode">
+    <Header :mode="mode" @toggle="toggle()" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from "@/components/Header";
 export default {
-  name: 'app',
+  name: "app",
+  data() {
+    return {
+      mode: "ligth"
+    };
+  },
   components: {
-    HelloWorld
+    Header
+  },
+  methods: {
+    toggle() {
+      if (this.mode === "dark") {
+        this.mode = "ligth";
+      } else {
+        this.mode = "dark";
+      }
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+.app {
+  width: 100vw;
+  min-height: 100vh;
+  background: #f3f3f3;
+  color: #15202b;
+  transition: background 0.3s ease-in-out;
+}
+.dark {
+  background: #192734;
+  color: #e8e8e8;
 }
 </style>
