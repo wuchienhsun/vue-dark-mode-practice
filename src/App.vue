@@ -1,11 +1,13 @@
 <template>
   <div class="app" :class="mode">
     <Header :mode="mode" @toggle="toggle()" />
+    <Content :mode="mode" />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
+import Content from "@/components/Content";
 export default {
   name: "app",
   data() {
@@ -14,7 +16,8 @@ export default {
     };
   },
   components: {
-    Header
+    Header,
+    Content
   },
   methods: {
     toggle() {
