@@ -1,20 +1,17 @@
 <template>
   <div class="app" :class="modeStatus">
     <Header />
-    <Content />
-    <!-- <router-link :to="{ name: 'home'}">Home</router-link> -->
+    <router-view />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
-import Content from "@/components/Content";
 import { mapGetters } from "vuex";
 export default {
   name: "app",
   components: {
-    Header,
-    Content
+    Header
   },
   computed: {
     ...mapGetters(["modeStatus"])

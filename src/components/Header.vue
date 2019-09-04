@@ -1,27 +1,57 @@
 <template>
   <header>
-    <h1>{{ mode }} Mode</h1>
+    <h1>{{ modeStatus }} Mode</h1>
     <!-- Toggler -->
     <Toggle />
     <nav>
-      <div class="nav-link">Home</div>
-      <div class="nav-link">About</div>
-      <div class="nav-link">Profile</div>
-      <div class="nav-link">Contact</div>
+      <div class="test">
+        <router-link to="/home">
+          <dm-button :color="color">Home</dm-button>
+        </router-link>
+      </div>
+      <div class="test">
+        <router-link to="/about">
+          <dm-button :color="color">About</dm-button>
+        </router-link>
+      </div>
+      <div class="test">
+        <router-link to="/content">
+          <dm-button :color="color">Content</dm-button>
+        </router-link>
+      </div>
     </nav>
   </header>
 </template> 
 
 <script>
 import Toggle from "@/components/Toggle";
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      mode: this.$store.state.mode
+      color: ""
     };
   },
   components: {
     Toggle
+  },
+  computed: {
+    ...mapGetters(["modeStatus"])
+  },
+  created() {
+    this.changeColor();
+  },
+  updated() {
+    this.changeColor();
+  },
+  methods: {
+    changeColor() {
+      if (this.modeStatus === "dark") {
+        this.color = "blue";
+      } else {
+        this.color = "black";
+      }
+    }
   }
 };
 </script>
@@ -61,5 +91,9 @@ header nav .nav-link:hover {
 
 .dark header nav .nav-link:hover {
   background: #101520;
+}
+
+.test {
+  padding: 10px;
 }
 </style>

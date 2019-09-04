@@ -24,7 +24,6 @@
     <p
       class="para"
     >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, ut quo, error iste doloribus suscipit nihil illum, eligendi deserunt laboriosam recusandae. Rerum eaque obcaecati repellat labore amet quaerat nostrum mollitia voluptate est blanditiis alias, libero corporis, modi officiis tempora qui distinctio exercitationem, cum ad? Ducimus sequi illum voluptate sint maiores!</p>
-    <router-link to="/home">Go to home</router-link>
   </div>
 </template>
 
