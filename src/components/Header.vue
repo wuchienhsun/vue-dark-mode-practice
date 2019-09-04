@@ -2,7 +2,7 @@
   <header>
     <h1>{{ mode }} Mode</h1>
     <!-- Toggler -->
-    <Toggle :mode="mode" @toggle="$emit('toggle')" />
+    <Toggle />
     <nav>
       <div class="nav-link">Home</div>
       <div class="nav-link">About</div>
@@ -15,7 +15,11 @@
 <script>
 import Toggle from "@/components/Toggle";
 export default {
-  props: ["mode"],
+  data() {
+    return {
+      mode: this.$store.state.mode
+    };
+  },
   components: {
     Toggle
   }

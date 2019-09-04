@@ -1,32 +1,23 @@
 <template>
-  <div class="app" :class="mode">
-    <Header :mode="mode" @toggle="toggle()" />
-    <Content :mode="mode" />
+  <div class="app" :class="modeStatus">
+    <Header />
+    <Content />
+    <!-- <router-link :to="{ name: 'home'}">Home</router-link> -->
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
 import Content from "@/components/Content";
+import { mapGetters } from "vuex";
 export default {
   name: "app",
-  data() {
-    return {
-      mode: "ligth"
-    };
-  },
   components: {
     Header,
     Content
   },
-  methods: {
-    toggle() {
-      if (this.mode === "dark") {
-        this.mode = "ligth";
-      } else {
-        this.mode = "dark";
-      }
-    }
+  computed: {
+    ...mapGetters(["modeStatus"])
   }
 };
 </script>

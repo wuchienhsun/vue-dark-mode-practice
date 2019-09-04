@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h3>This is {{mode}} mode</h3>
+    <h3>This is {{modeStatus}} mode</h3>
     <div class="image-grid">
       <div class="col">
         <img
@@ -24,12 +24,17 @@
     <p
       class="para"
     >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, ut quo, error iste doloribus suscipit nihil illum, eligendi deserunt laboriosam recusandae. Rerum eaque obcaecati repellat labore amet quaerat nostrum mollitia voluptate est blanditiis alias, libero corporis, modi officiis tempora qui distinctio exercitationem, cum ad? Ducimus sequi illum voluptate sint maiores!</p>
+    <router-link to="/home">Go to home</router-link>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  props: ["mode"]
+  computed: {
+    ...mapGetters(["modeStatus"])
+  }
 };
 </script>
 

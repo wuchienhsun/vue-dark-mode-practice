@@ -16,3 +16,7 @@ export const incrementAsync = ({ commit }) => {
     commit('increment')
   }, 1000)
 }
+
+export const changeMode = ({ commit }) => {
+  commit('changeMode')
+}

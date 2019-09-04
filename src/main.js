@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueDarkMode from "vuedarkmode";
 import App from './App.vue'
-
+import store from './store'
+import router from "./router/index"
+// import router from './router'
 Vue.use(VueDarkMode, {
   // Specify the components to declare globally in your project
   // When undefined, null or given an empty array, all components will be imported
@@ -15,6 +17,9 @@ Vue.use(VueDarkMode, {
 });
 Vue.config.productionTip = false
 
+
 new Vue({
   render: h => h(App),
+  store,
+  router
 }).$mount('#app')
